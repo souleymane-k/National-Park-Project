@@ -13,10 +13,11 @@ function displayResults(responseJson){
     console.log(responseJson);
     $('#results-list').empty();
     for(let i=0; i<responseJson.data.length; i++){
-        $('#results-list').append(`
-        <li>
-        <h2>${responseJson.date[i].fullName}</h2>
-        </li>
+        $('#results-list').append(
+    `<li><h2><${responseJson.data[i].fullName}</h2>
+    <p>${responseJson.data[i].description}</p>
+    <p>${responseJson.data[i].url}</p>  
+    </li>
         `)
     };
 
@@ -30,7 +31,7 @@ function getParkList(query, maxResults =10){
         
     };
     const queryString = formatQueryParasms(parasms)
-    const url =searchURL+'?'+queryString;
+    const url = searchURL+'?'+queryString;
 
 
 fetch(url)
@@ -53,9 +54,7 @@ $('form').submit(event => {
      const searchTerm = $('#js-search-term').val();
      const maxResults = $('#js-max-results').val();
      getParkList(searchTerm, maxResults);
-    
   });
-
 }
 $(watchForm);
 
