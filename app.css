@@ -1,1 +1,37 @@
-
+*{
+    box-sizing:border-box;
+}
+body{
+    font-family: sans-serif;
+}
+label{
+    margin:10px;
+}
+/*button, input[type="text"] {
+    padding: 5px;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }*/
+  
+  .container {
+    max-width: 800px;
+    text-align:center;
+    
+    max-height: 945px;
+    margin: 0 auto;
+  }
+  .inputClass{
+    cursor: pointer;
+    background-color: green;
+    color:white;
+  }
+  
+  .error-message {
+      color: red;
+  }
+  
+  .hidden {
+    display: none;
+  }
