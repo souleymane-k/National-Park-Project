@@ -7,18 +7,17 @@ body{
 label{
     margin:10px;
 }
-/*button, input[type="text"] {
+button, input[type="text"] {
     padding: 5px;
   }
   
   button:hover {
     cursor: pointer;
-  }*/
+  }
   
   .container {
     max-width: 800px;
     text-align:center;
-    
     max-height: 945px;
     margin: 0 auto;
   }
@@ -28,8 +27,9 @@ label{
     color:white;
   }
   
-  .error-message {
+  #js-error-message {
       color: red;
+      padding:20px;
   }
   
   .hidden {

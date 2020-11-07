@@ -5,19 +5,32 @@ const searchURL = "https://developer.nps.gov/api/v1/parks"
 
 function formatQueryParasms(parasms){
     const queryItems = Object.keys(parasms)
-    .map(key => `${encodeURIComponent(key)} = ${encodeURIComponent(parasms[key])}`)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(parasms[key])}`)
     return queryItems.join('&');
 }
 
-function getParkList(parkCode, maxResults =10){ 
+function displayResults(responseJson){
+    console.log(responseJson);
+    $('#results-list').empty();
+    for(let i=0; i<responseJson.data.length; i++){
+        $('#results-list').append(`
+        <li>
+        <h2>${responseJson.date[i].fullName}</h2>
+        </li>
+        `)
+    };
+
+    $('#results').removeClass('.hidden');
+}
+function getParkList(query, maxResults =10){ 
     const parasms = {
-        key: apiKey,
-        q:parkCode,
-        maxResults
+        api_key: apiKey,
+              q:query,
+              maxResults
         
     };
     const queryString = formatQueryParasms(parasms)
-    const url = searchURL + '?' + queryString;
+    const url =searchURL+'?'+queryString;
 
 
 fetch(url)
@@ -27,7 +40,7 @@ fetch(url)
         }
         throw new Error(response.statusText);
     })
-    .then(responseJson => console.log(JSON.stringtify(responseJson)))
+    .then(responseJson => displayResults(responseJson))
     .catch(err => {
         $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
