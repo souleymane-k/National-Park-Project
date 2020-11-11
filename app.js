@@ -26,10 +26,10 @@ function displayResults(responseJson){
 
     $('#results').removeClass('hidden');
 }
-function getParkList(query, maxResults =10){ 
+function getParkList(query, limit){ 
     const parasms = {
         api_key: apiKey,
-        q: query, maxResults,  
+        q: query, limit,  
         
     };
     const queryString = formatQueryParasms(parasms)
@@ -54,13 +54,8 @@ $('form').submit(event => {
     event.preventDefault();
      const searchTerm = $('#js-search-term').val();
      const maxResults = $('#js-max-results').val();
-    // getParkList(searchTerm, maxResults);
-    //$('#js-max-results').val();
-    if(maxResults <= 20){
-        getParkList(searchTerm, maxResults);
-    }else{
-        alert('Enter Number Less or equal to 20')
-    }
+    getParkList(searchTerm, maxResults);
+    
 
   });
 }
