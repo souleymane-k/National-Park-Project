@@ -29,9 +29,7 @@ function displayResults(responseJson){
 function getParkList(query, maxResults =10){ 
     const parasms = {
         api_key: apiKey,
-        q:query,
-        maxResults
-         
+        q: query, maxResults,  
         
     };
     const queryString = formatQueryParasms(parasms)
@@ -56,9 +54,18 @@ $('form').submit(event => {
     event.preventDefault();
      const searchTerm = $('#js-search-term').val();
      const maxResults = $('#js-max-results').val();
-     getParkList(searchTerm, maxResults);
+    // getParkList(searchTerm, maxResults);
+    //$('#js-max-results').val();
+    if(maxResults <= 20){
+        getParkList(searchTerm, maxResults);
+    }else{
+        alert('Enter Number Less or equal to 20')
+    }
+
   });
 }
 $(watchForm);
+
+
 
 

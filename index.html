@@ -12,15 +12,16 @@
 <body>
     <div class="container">
         <h1>US National Parks Search</h1>
-    <form>
-        <label for="js-search-term">Search Park</label>
+    <form id="js-form">
+        <label for="search-term">Search Park</label>
         <input type="text" name="search-term" id="js-search-term" required>
 
-        <label for="js-max-results">Number Of Results</label>
+        <label for="max-results">Number Of Results</label>
         <input type="number" name="max-results" id="js-max-results"  value="10">
 
         <input type="submit" value="Submit" class="inputClass">
-
+        <!--<button type="submit" value="Submit" >Click</button>-->
+         
     </form>
     <div id="js-error-message"></div>
       <section id="results" class="hidden">
